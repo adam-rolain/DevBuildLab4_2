@@ -6,7 +6,7 @@ namespace Lab4_2ObjectPractice
     {
         static void Main(string[] args)
         {
-            // Testing Out MenuItem Class
+            // Testing out MenuItem class
             MenuItem item1 = new MenuItem(1, "Pizza", "Cheesy and delicious", 12.50m);
             MenuItem item2 = new MenuItem(2, "Ham and Cheese Sandwich", "Cheesy, but not as delicious", 8.50m);
             MenuItem item3 = new MenuItem(3, "Fruit Salad", "Sweet and fresh", 0.30m);
@@ -21,6 +21,51 @@ namespace Lab4_2ObjectPractice
             // Creating an instance of MenuItem with default constructor
             // MenuItem item5 = new MenuItem();
             // Error Received: 'MenuItem' does not contain a constructor that takes 0 arguments
+
+            // Testing out Rectangle class
+                // Different Lengths and Widths
+            Rectangle r1 = new Rectangle(10, 20);
+            Rectangle r2 = new Rectangle(10, 10);
+            if (r1 == r2)
+            {
+                Console.WriteLine("\nSame");
+            }
+            else
+            {
+                Console.WriteLine("\nDifferent");
+            }
+
+                // Same Lengths and Widths
+            Rectangle r3 = new Rectangle(10, 10);
+            Rectangle r4 = new Rectangle(10, 10);
+            if (r3 == r4)
+            {
+                Console.WriteLine("\nSame");
+            }
+            else
+            {
+                Console.WriteLine("\nDifferent");
+            }
+
+                // Setting second rectangle as equal to the first
+            Rectangle r5 = new Rectangle(10, 10);
+            Rectangle r6 = r5;
+            if (r5 == r6)
+            {
+                Console.WriteLine("\nSame");
+            }
+            else
+            {
+                Console.WriteLine("\nDifferent");
+            }
+
+            // Conclusions from the above Rectangle Tests:
+            // The first two tests both return "Different" because each of the variables
+            // are pointing to a different instance of the Rectangle class in the heap.
+            // The third test returns "Same" because when I set "r6 = r5" that is storing
+            // the instance of Rectangle that was created in r5 to r6 as well. Basically,
+            // r5 and r6 are both pointing to the same instance of the Rectangle class in 
+            // the heap.
         }
     }
 
@@ -119,6 +164,20 @@ namespace Lab4_2ObjectPractice
         public override string ToString()
         {
             return $"\n------------Menu Item Instance------------\nID: {ID}\nName: {Name}\nDescription: {Description}\nPrice: ${Price}";
+        }
+    }
+
+    class Rectangle
+    {
+        // FIELDS
+        public int Length;
+        public int Width;
+
+        // CONSTRUCTOR
+        public Rectangle(int length, int width)
+        {
+            Length = length;
+            Width = width;
         }
     }
 }
